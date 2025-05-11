@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+.singup-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-image: url('/img/fondoRegistro.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.singup-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+    z-index: 1;
+}
+
+/* Botón BACK */
+.back-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #FFC107;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 3;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #ffca2c;
+}
+
+/* Estilos del registro */
+.register-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 2;
+    position: relative;
+    padding-left: 10%;
+}
+
+.register-box {
+    width: 350px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.register-header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.sign-up-icon {
+    background-color: #444;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.sign-up-icon svg {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+.sign-up-icon h2 {
+    color: #fff;
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-row {
+    display: flex;
+    gap: 10px;
+}
+
+.register-input {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    font-size: 14px;
+    outline: none;
+}
+
+.half-width {
+    width: 50%;
+}
+
+.register-input::placeholder {
+    color: #777;
+}
+
+.signup-button {
+    background-color: #FFC107;
+    color: #000;
+    border: none;
+    border-radius: 25px;
+    padding: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    width: 120px;
+    align-self: center;
+}
+
+.home-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #FFC107;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 3;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+.home-button:hover {
+    background-color: #ffca2c;
+}

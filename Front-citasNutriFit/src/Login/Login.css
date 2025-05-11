@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/img/fondoGym.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 36, 0.8), rgba(0, 0, 36, 0.7));
+    z-index: 1;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    position: relative;
+}
+
+.login-box {
+    width: 350px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+}
+
+.login-header {
+    margin-bottom: 30px;
+}
+
+.login-header h2 {
+    color: #fff;
+    font-size: 28px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.yellow-arrow {
+    color: #FFC107;
+    margin-left: 3px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-input {
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    font-size: 14px;
+    outline: none;
+}
+
+.login-input::placeholder {
+    color: #777;
+}
+
+.forgot-password {
+    text-align: right;
+}
+
+.forgot-password a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.forgot-password a:hover {
+    opacity: 1;
+}
+
+.login-button {
+    background-color: #FFC107;
+    color: #000;
+    border: none;
+    border-radius: 25px;
+    padding: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+.login-button:hover {
+    background-color: #ffca2c;
+}
+
+.register-link {
+    margin-top: 10px;
+}
+
+.register-button {
+    background-color: transparent;
+    border: 2px solid #FFC107;
+    color: #FFC107;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.register-button:hover {
+    background-color: rgba(255, 193, 7, 0.1);
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    background-color: #FFC107;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 3;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+.back-button:hover {
+    background-color: #ffca2c;
+}
+.error-message {
+    color: #ff4d4f; /* rojo suave, pero visible */
+    background-color: rgba(255, 77, 79, 0.1);
+    border: 1px solid #ff4d4f;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+}
