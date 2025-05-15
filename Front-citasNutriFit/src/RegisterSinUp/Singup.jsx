@@ -66,15 +66,7 @@ function SingUp() {
                         <input type="email" placeholder="CONFIRM EMAIL" className="register-input" value={confirmEmail} onChange={(e) => setConfirmEmail(e.target.value)} />
                         <input type="password" placeholder="PASSWORD" className="register-input" value={password} onChange={(e) => setPassword(e.target.value)} />
                         <input type="password" placeholder="CONFIRM PASSWORD" className="register-input" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
-                        <input type="text" placeholder="DNI" className="register-input" value={dni} onChange={(e) => {
-                            // Solo aceptar hasta 8 caracteres y que sean números
-                            const value = e.target.value;
-                            if (/^\d*$/.test(value) && value.length <= 8) {
-                                setDni(value);
-                            }
-                        }}
-                            maxLength={8}
-                        />
+                        <input type="text" placeholder="DNI" className="register-input" value={dni} onChange={(e) => setDni(e.target.value)} />
 
                         {/* Mensaje de error si hay */}
                         {errorMessage && <div className="error-message">{errorMessage}</div>}
