@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import './Login.css'
-import { Link, useNavigate } from 'react-router-dom'
-import axios from "axios"
+import React, { useState } from 'react';
+import './Login.css';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 function MainLogin() {
     const [email, setEmail] = useState('');
@@ -24,10 +24,15 @@ function MainLogin() {
             const response = await axios.post("https://back-proytec.onrender.com/api/usuario/loginUsuario", data);
 
             if (response.status === 200) {
-                console.log("Login exitoso:", response.data);
+                const { token } = response.data;
+
+                // Guardar el token en localStorage
+                localStorage.setItem("token", token);
+
+                // Limpiar estados y redirigir
                 setFailedAttempts(0);
                 setErrorMessage('');
-                navigate("/prueba");
+                navigate("/mainUsuario");
             }
         } catch (error) {
             console.error("Error al verificar el usuario:", error);

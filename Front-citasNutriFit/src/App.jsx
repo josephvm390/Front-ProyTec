@@ -8,6 +8,7 @@ import Footer from './Home/Footer'
 import Login from './Login/Login'
 import Singup from './RegisterSinUp/Singup'
 import Prueba from './Paginaprueba/Prueba'
+import MainUsuario from './InfoUsuario/MainUsuario'
 
 
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/Login" element={<Login></Login>}></Route>
           <Route path="/Singup" element={<Singup></Singup>}></Route>
           <Route path="/Prueba" element={<Prueba></Prueba>}></Route>
+          <Route path="/MainUsuario" element={<MainUsuario></MainUsuario>}></Route>
         </Routes>
       </Router>
       <Footer></Footer>

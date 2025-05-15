@@ -6,7 +6,7 @@
 }
 
 .container {
-    width: 100vw;
+    width: 100xp;
     height: 100vh;
     display: flex;
     justify-content: center;
