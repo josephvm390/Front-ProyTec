@@ -24,10 +24,14 @@ function MainLogin() {
             const response = await axios.post("https://back-proytec.onrender.com/api/usuario/loginUsuario", data);
 
             if (response.status === 200) {
-                const { token } = response.data;
+                const { token, usuario } = response.data;
 
                 // Guardar el token en localStorage
                 localStorage.setItem("token", token);
+                localStorage.setItem("email", email);
+                if (usuario && usuario.dni) {
+                    localStorage.setItem("dni", usuario.dni);
+                }
 
                 // Limpiar estados y redirigir
                 setFailedAttempts(0);

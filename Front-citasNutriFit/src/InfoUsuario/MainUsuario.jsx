@@ -1,15 +1,12 @@
 import React from 'react'
 import NavbarUsuario from './NavbarUsuario'
+import InfoUsu from './InfoUsu'
 import './MainUsuario.css'
 function MainUsuario() {
     return (
         <>
         <NavbarUsuario></NavbarUsuario>
-        <div className="proximo-mensaje">
-                PROXIMAMENTE ÁREA DE INFORMACIÓN DEL USUARIO<br />
-                Gracias por su Preferencia<br />
-                ATTE: GRUPO FIT
-            </div>
+        <InfoUsu></InfoUsu>
         </>
     )
 }
