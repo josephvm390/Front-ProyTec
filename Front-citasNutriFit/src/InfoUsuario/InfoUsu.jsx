@@ -13,7 +13,7 @@ function InfoUsu() {
         if (email && dni) {
             Promise.all([
                 axios.get(`http://localhost:3000/api/usuario/UserDetails/${email}`),
-                axios.get(`http://localhost:3000/api/suscritos/InfoUsu/${dni}`)
+                axios.get(`http://localhost:3000/api/usuario/InfoUsu/${dni}`)
             ])
                 .then(([userDetailsRes, suscritosRes]) => {
                     // Para la union de datos
@@ -30,7 +30,7 @@ function InfoUsu() {
                 .catch(err => console.error(err));
         } else if (dni) {
             // para el dni
-            axios.get(`http://localhost:3000/api/suscritos/InfoUsu/${dni}`)
+            axios.get(`http://localhost:3000/api/usuario/InfoUsu/${dni}`)
                 .then(res => setUserData(res.data))
                 .catch(err => console.error(err));
         } else {
