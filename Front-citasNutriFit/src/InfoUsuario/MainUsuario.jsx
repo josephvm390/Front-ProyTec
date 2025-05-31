@@ -1,12 +1,14 @@
 import React from 'react'
 import NavbarUsuario from './NavbarUsuario'
-import InfoUsu from './InfoUsu'
 import './MainUsuario.css'
+import { Outlet } from 'react-router-dom'
+import InfoUsu from './InfoUsu'
+
 function MainUsuario() {
     return (
         <>
-        <NavbarUsuario></NavbarUsuario>
-        <InfoUsu></InfoUsu>
+            <NavbarUsuario />
+            <InfoUsu></InfoUsu>
         </>
     )
 }

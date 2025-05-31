@@ -10,31 +10,42 @@ function InfoUsu() {
     useEffect(() => {
         const email = localStorage.getItem('email');
         const dni = localStorage.getItem('dni');
+
         if (email && dni) {
             Promise.all([
-                axios.get(`http://localhost:3000/api/usuario/UserDetails/${email}`),
-                axios.get(`http://localhost:3000/api/suscritos/InfoUsu/${dni}`)
+                axios.get(`https://back-proytec.onrender.com/api/usuario/UserDetails/${email}`),
+                axios.get(`https://back-proytec.onrender.com/api/suscritos/InfoUsu/${dni}`)
             ])
                 .then(([userDetailsRes, suscritosRes]) => {
-                    // Para la union de datos
-                    setUserData({
+                    const combinedData = {
                         ...userDetailsRes.data,
                         ...suscritosRes.data
-                    });
+                    };
+
+                    setUserData(combinedData);
+
+                    // Guardar membresía si existe
+                    if (combinedData.membresia) {
+                        localStorage.setItem('membresia', combinedData.membresia);
+                    }
                 })
                 .catch(err => console.error(err));
         } else if (email) {
-            // para el email
-            axios.get(`http://localhost:3000/api/usuario/UserDetails/${email}`)
+            axios.get(`https://back-proytec.onrender.com/api/usuario/UserDetails/${email}`)
                 .then(res => setUserData(res.data))
                 .catch(err => console.error(err));
         } else if (dni) {
-            // para el dni
-            axios.get(`http://localhost:3000/api/suscritos/InfoUsu/${dni}`)
-                .then(res => setUserData(res.data))
+            axios.get(`https://back-proytec.onrender.com/api/suscritos/InfoUsu/${dni}`)
+                .then(res => {
+                    setUserData(res.data);
+
+                    // Guardar membresía si existe
+                    if (res.data.membresia) {
+                        localStorage.setItem('membresia', res.data.membresia);
+                    }
+                })
                 .catch(err => console.error(err));
         } else {
-            // Si en caso no se encuentre datos
             console.error("No hay email ni dni guardados");
         }
     }, []);

@@ -1,15 +1,15 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import './NavbarUsuario.css'
-import { Link } from 'react-router-dom'
 
 function NavbarUsuario() {
     return (
         <nav className="navbar-usuario">
             <img src="/img/logo_black.jpg" alt="Smart Fit Logo" className="logo-usuario" />
             <div className="nav-links-usuario">
-                <Link to="#" className="active">INFORMACIÓN PERSONAL</Link>
-                <Link to="#">TUS RUTINAS</Link>
-                <Link to="#">NUTRI FIT</Link>
+                <NavLink to="/mainUsuario" className={({ isActive }) => isActive ? 'active' : ''}>INFORMACIÓN PERSONAL</NavLink>
+                <NavLink to="/Rutinas" className={({ isActive }) => isActive ? 'active' : ''}>TUS RUTINAS</NavLink>
+                <NavLink to="/Nutrifit" className={({ isActive }) => isActive ? 'active' : ''}>NUTRI FIT</NavLink>
             </div>
         </nav>
     )
