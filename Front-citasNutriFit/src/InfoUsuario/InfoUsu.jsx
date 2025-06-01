@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import './InfoUsu.css'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+
 
 
 function InfoUsu() {
@@ -89,6 +91,7 @@ function InfoUsu() {
                             <input type="tel" className="form-input" value={userData.contactoEmer || ''} readOnly />
                         </div>
                     </div>
+                    <Link to="/login" className="save-btn">LOG OUT</Link>
                 </form>
                 {/* Apartado de horarios de atencion */}
                 <div className="schedule-section">

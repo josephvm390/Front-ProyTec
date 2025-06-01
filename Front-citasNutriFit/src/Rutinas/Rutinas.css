@@ -45,8 +45,8 @@
 }
 
 .exercise-image {
-    width: 100%;
-    height: 150px;
+    width: 95%;
+    height: 350px;
     object-fit: cover;
     border-radius: 5px;
     margin-bottom: 10px;

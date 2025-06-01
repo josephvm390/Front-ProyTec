@@ -17,26 +17,26 @@ function Rutinas() {
                     <div className="exercise-name">Press de banca</div>
                     <img src="img/rutinas_img/pectorales.jpg" alt="Press de banca" className="exercise-image" />
                     <div className="exercise-details">
-                        <p>3×10 - Descanso entre series 00:45 seg</p>
-                        <p>3×9 - Descanso entre series 00:45 seg</p>
+                        <p>3×15 - Descanso entre series 00:45 seg - <b>MAX RECOMENDADO</b></p>
+                        <p>3×9 - Descanso entre series 00:45 seg - <b>Minimo</b></p>
                     </div>
                 </div>
 
                 <div className="exercise-card">
                     <div className="exercise-name">Aperturas con mancuernas</div>
-                    <img src="img/rutinas_img/brazos.jpg" alt="Aperturas con mancuernas" className="exercise-image" />
+                    <img src="img/rutinas_img//apertura.jpeg" alt="Aperturas con mancuernas" className="exercise-image" />
                     <div className="exercise-details">
-                        <p>3×12 - Descanso entre series 00:50 seg</p>
-                        <p>3×12 - Descanso entre series 00:50 seg</p>
+                        <p>3×15 - Descanso entre series 00:50 seg - <b>MAX RECOMENDADO</b></p>
+                        <p>3×9 - Descanso entre series 00:50 seg - <b>Minimo</b></p>
                     </div>
                 </div>
 
                 <div className="exercise-card">
-                    <div className="exercise-name">Flexiones</div>
+                    <div className="exercise-name">Hombros</div>
                     <img src="img/rutinas_img/hombros.jpg" alt="Flexiones" className="exercise-image" />
                     <div className="exercise-details">
-                        <p>3×12 - Descanso entre series 00:50 seg</p>
-                        <p>3×12 - Descanso entre series 00:50 seg</p>
+                        <p>3×15 - Descanso entre series 00:50 seg - <b>MAX RECOMENDADO</b></p>
+                        <p>3×10 - Descanso entre series 00:50 seg - <b>Minimo</b></p>
                     </div>
                 </div>
             </div>
@@ -48,16 +48,17 @@ function Rutinas() {
                     <div className="exercise-name">Jalón al pecho</div>
                     <img src="img/rutinas_img/dorsales.jpg" alt="Jalón al pecho" className="exercise-image" />
                     <div className="exercise-details">
-                        <p>3×10 - Descanso entre series 01:00 min</p>
-                        <p>3×10 - Descanso entre series 01:00 min</p>
+                        <p>3×15 - Descanso entre series 01:00 min - <b>MAX RECOMENDADO</b></p>
+                        <p>3×8 - Descanso entre series 01:00 min - <b>Minimo</b></p>
                     </div>
                 </div>
 
                 <div className="exercise-card">
                     <div className="exercise-name">Remo con barra</div>
-                    <img src="img/rutinas_img/dorsales.jpg" alt="Remo con barra" className="exercise-image" />
+                    <img src="img/rutinas_img/remos.jpg" alt="Remo con barra" className="exercise-image" />
                     <div className="exercise-details">
-                        <p>3×9 - Descanso entre series 01:00 min</p>
+                        <p>3×12 - Descanso entre series 01:00 min - <b>MAX RECOMENDADO</b></p>
+                        <p>3×9 - Descanso entre series 01:00 min - <b>Minimo</b></p>
                     </div>
                 </div>
             </div>
@@ -69,7 +70,8 @@ function Rutinas() {
                     <div className="exercise-name">Curl de bíceps</div>
                     <img src="img/rutinas_img/deltoides.jpg" alt="Curl de bíceps" className="exercise-image" />
                     <div className="exercise-details">
-                        <p>3×9 - Descanso entre series 00:45 seg</p>
+                        <p>3×12 - Descanso entre series 01:00 min - <b>MAX RECOMENDADO</b></p>
+                        <p>3×9 - Descanso entre series 01:00 min - <b>Minimo</b></p>
                     </div>
                 </div>
 
@@ -77,8 +79,8 @@ function Rutinas() {
                     <div className="exercise-name">Extensión de tríceps</div>
                     <img src="img/rutinas_img/triceps.jpg" alt="Extensión de tríceps" className="exercise-image" />
                     <div className="exercise-details">
-                        <p>3×12 - Descanso entre series 00:45 seg</p>
-                        <p>3×12 - Descanso entre series 00:45 seg</p>
+                        <p>3×14 - Descanso entre series 00:45 seg - <b>MAX RECOMENDADO</b></p>
+                        <p>3×8 - Descanso entre series 00:45 seg - <b>Minimo</b></p>
                     </div>
                 </div>
             </div>
@@ -90,9 +92,8 @@ function Rutinas() {
                     <div className="exercise-name">Leg Press</div>
                     <img src="img/rutinas_img/abductordecadera.jpg" alt="Leg Press" className="exercise-image" />
                     <div className="exercise-details">
-                        <p>3×12 - Descanso entre series 00:45 seg</p>
-                        <p>3×12 - Descanso entre series 00:45 seg</p>
-                        <p>3×12 - Descanso entre series 00:45 seg</p>
+                        <p>3×14 - Descanso entre series 00:45 seg - <b>MAX RECOMENDADO</b></p>
+                        <p>3×10 - Descanso entre series 00:45 seg - </p>
                     </div>
                 </div>
 
@@ -100,8 +101,8 @@ function Rutinas() {
                     <div className="exercise-name">Leg Extension</div>
                     <img src="img/rutinas_img/legextension.jpg" alt="Leg Extension" className="exercise-image" />
                     <div className="exercise-details">
-                        <p>3×12 - Descanso entre series 00:45 seg</p>
-                        <p>3×12 - Descanso entre series 00:45 seg</p>
+                        <p>3×14 - Descanso entre series 00:45 seg - <b>MAX RECOMENDADO</b></p>
+                        <p>3×10 - Descanso entre series 00:45 seg - <b>Minimo</b></p>
                     </div>
                 </div>
             </div>
