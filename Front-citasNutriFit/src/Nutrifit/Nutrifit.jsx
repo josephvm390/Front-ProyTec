@@ -28,7 +28,9 @@ function Nutrifit() {
                         <li>En caso de querer cambiar la cita comunicarse al teléfono del nutricionista</li>
                     </ul>
 
-                    <button className="accept-button">Aceptar</button>
+                    <Link to="/nutrifit1" className="accept-button">
+                        Aceptar
+                    </Link>
                 </main>
             ) : (
                 <main className="contenido-diferente">

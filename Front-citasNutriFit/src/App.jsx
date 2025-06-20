@@ -13,7 +13,10 @@ import InfoUsu from './InfoUsuario/InfoUsu'
 import Rutinas from './Rutinas/Rutinas'
 import Nutrifit from './Nutrifit/Nutrifit'
 import AdsFit from './Nutrifit/AdsFit'
-
+import Nutrifit1 from './Nutrifit/Nutrifit1'
+import Nutrifit2 from './Nutrifit/Nutrifit2'
+import Nutrifit3 from './Nutrifit/Nutrifit3'
+import Nutrifit4 from './Nutrifit/Nutrifit4'
 
 
 
@@ -33,6 +36,10 @@ function App() {
           <Route path="/Rutinas" element={<Rutinas></Rutinas>}></Route>
           <Route path="/Nutrifit" element={<Nutrifit></Nutrifit>}></Route>
           <Route path="/AdsFit" element={<AdsFit></AdsFit>}></Route>
+          <Route path="/Nutrifit1" element={<Nutrifit1></Nutrifit1>}></Route>
+          <Route path="/Nutrifit2" element={<Nutrifit2></Nutrifit2>}></Route>
+          <Route path="/Nutrifit3" element={<Nutrifit3></Nutrifit3>}></Route>
+          <Route path="/Nutrifit4" element={<Nutrifit4></Nutrifit4>}></Route>
         </Routes>
       </Router>
       <Footer></Footer>

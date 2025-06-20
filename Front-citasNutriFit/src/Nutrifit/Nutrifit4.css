@@ -1,0 +1,331 @@
+/* Main Content */
+.main-content4 {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.title4 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.title-underline4 {
+    width: 200px;
+    height: 3px;
+    background: linear-gradient(90deg, #FFC300, #FFD700);
+    margin: 0 auto 50px;
+    border-radius: 2px;
+}
+
+/* Progress Steps */
+.progress-container4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.step4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.step-number4 {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ddd;
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    z-index: 2;
+    position: relative;
+}
+
+.step4.active4 .step-number4,
+.step4.completed4 .step-number4 {
+    background-color: #333;
+    color: white;
+}
+
+.step-label4 {
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+    max-width: 80px;
+    line-height: 1.3;
+}
+
+.step4.active4 .step-label4,
+.step4.completed4 .step-label4 {
+    color: #333;
+    font-weight: 600;
+}
+
+.step-line4 {
+    flex: 1;
+    height: 2px;
+    background-color: #ddd;
+    margin: 0 20px;
+    margin-bottom: 30px;
+}
+
+.step-line4.completed4 {
+    background-color: #333;
+}
+
+/* Appointment Info */
+.appointment-info4 {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.appointment-title4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+.info-item4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: #555;
+}
+
+.info-item4 i {
+    margin-right: 10px;
+    color: #666;
+    width: 16px;
+}
+
+.info-item4:last-child {
+    margin-bottom: 0;
+}
+
+/* Form */
+.appointment-form4 {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-group4 {
+    margin-bottom: 20px;
+}
+
+.form-input4 {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.form-input4:focus {
+    outline: none;
+    border-color: #FFC300;
+    box-shadow: 0 0 0 3px rgba(255, 195, 0, 0.1);
+}
+
+.form-input4::placeholder {
+    color: #999;
+}
+
+/* Checkbox */
+.checkbox-group4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.checkbox-input4 {
+    margin-right: 8px;
+    transform: scale(1.2);
+}
+
+.checkbox-label4 {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+}
+
+/* Confirm Button */
+.confirm-button4 {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(51, 51, 51, 0.3);
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.confirm-button4:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(51, 51, 51, 0.4);
+    background-color: #444;
+}
+
+.confirm-button4:active {
+    transform: translateY(0);
+}
+
+/* Terms Text */
+.terms-text4 {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 11px;
+    color: #888;
+    line-height: 1.4;
+    text-align: justify;
+}
+
+.terms-text4 p {
+    margin-bottom: 10px;
+}
+
+.terms-text4 p:last-child {
+    margin-bottom: 0;
+}
+
+.terms-link4 {
+    color: #FFC300;
+    text-decoration: none;
+}
+
+.terms-link4:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content4 {
+        padding: 40px 15px;
+    }
+
+    .title4 {
+        font-size: 24px;
+    }
+
+    .progress-container4 {
+        flex-direction: column;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    .step-line4 {
+        display: none;
+    }
+
+    .step4 {
+        width: 100%;
+    }
+
+    .step-label4 {
+        max-width: none;
+        font-size: 14px;
+    }
+
+    .appointment-info4 {
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+
+    .appointment-title4 {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .info-item4 {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    .appointment-form4 {
+        max-width: 100%;
+    }
+
+    .form-input4 {
+        padding: 12px 18px;
+        font-size: 14px;
+    }
+
+    .confirm-button4 {
+        padding: 12px 35px;
+        font-size: 15px;
+    }
+
+    .terms-text4 {
+        font-size: 10px;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title4 {
+        font-size: 20px;
+    }
+
+    .title-underline4 {
+        width: 150px;
+    }
+
+    .step-number4 {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+
+    .appointment-info4 {
+        padding: 15px;
+    }
+
+    .appointment-title4 {
+        font-size: 15px;
+    }
+
+    .info-item4 {
+        font-size: 13px;
+    }
+
+    .form-input4 {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+
+    .confirm-button4 {
+        padding: 10px 30px;
+        font-size: 14px;
+    }
+}
