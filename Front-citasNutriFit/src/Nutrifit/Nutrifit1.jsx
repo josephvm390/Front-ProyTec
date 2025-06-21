@@ -1,9 +1,17 @@
 import React from 'react'
 import NavbarUsuario from '../InfoUsuario/NavbarUsuario'
 import './Nutrifit1.css'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function Nutrifit1() {
+
+    const navigate = useNavigate();
+
+    const handleClick = (modalidad) => {
+        localStorage.setItem('modalidad', modalidad);
+        navigate('/Nutrifit2');
+    };
+
     return (
         <>
             <NavbarUsuario forceNutrifitActive={true}></NavbarUsuario>
@@ -36,8 +44,18 @@ function Nutrifit1() {
 
                 {/* Modality Selection */}
                 <div className="modality-container1">
-                    <button className="modality-btn1 presencial1">PRESENCIAL</button>
-                    <button className="modality-btn1 virtual1">VIRTUAL</button>
+                    <button
+                        className="modality-btn1 presencial1"
+                        onClick={() => handleClick('PRESENCIAL')}
+                    >
+                        PRESENCIAL
+                    </button>
+                    <button
+                        className="modality-btn1 virtual1"
+                        onClick={() => handleClick('VIRTUAL')}
+                    >
+                        VIRTUAL
+                    </button>
                 </div>
             </main>
         </>

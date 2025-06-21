@@ -1,11 +1,42 @@
 import React from 'react'
 import NavbarUsuario from '../InfoUsuario/NavbarUsuario';
 import './Nutrifit.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import axios, { Axios } from "axios"
 
 function Nutrifit() {
     const membresia = localStorage.getItem('membresia')
+    const navigate = useNavigate();
 
+
+    const handleAceptar = async () => {
+    const email = localStorage.getItem('email');
+    if (!email) {
+        alert("Correo no encontrado. Inicie sesión nuevamente.");
+        return;
+    }
+
+    try {
+        const response = await axios.get(`https://back-proytec.onrender.com/api/citas/obtenerCitaxCorreo/${email}`);
+        const citas = response.data;
+
+        if (!Array.isArray(citas) || citas.length === 0) { //ingreso si no hay citas
+            navigate('/nutrifit1');
+            return;
+        }
+
+        const tienePendiente = citas.some(cita => cita.estado === 'pendiente'); //si tiene citas verifica el estado
+
+        if (tienePendiente) {
+            alert("Usted tiene una cita pendiente");
+        } else {
+            navigate('/nutrifit1');
+        }
+    } catch (error) {
+        console.error("Error al verificar citas:", error);
+        alert("Ocurrió un error al verificar sus citas.");
+    }
+};
     return (
         <>
             <NavbarUsuario />
@@ -28,9 +59,9 @@ function Nutrifit() {
                         <li>En caso de querer cambiar la cita comunicarse al teléfono del nutricionista</li>
                     </ul>
 
-                    <Link to="/nutrifit1" className="accept-button">
+                    <button onClick={handleAceptar} className="accept-button">
                         Aceptar
-                    </Link>
+                    </button>
                 </main>
             ) : (
                 <main className="contenido-diferente">

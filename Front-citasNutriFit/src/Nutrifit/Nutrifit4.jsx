@@ -1,9 +1,70 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import NavbarUsuario from '../InfoUsuario/NavbarUsuario'
 import './Nutrifit4.css'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import axios, { Axios } from "axios"
 
 function Nutrifit4() {
+
+    const [modalidad, setModalidad] = useState('');
+    const [direccion, setDireccion] = useState('');
+    const [fecha, setFecha] = useState('');
+    const [hora, setHora] = useState('');
+    const [doctor, setDoctor] = useState('');
+
+    const [nombres, setNombres] = useState('');
+    const [apellidos, setApellidos] = useState('');
+    const [email, setEmail] = useState('');
+    const [celular, setCelular] = useState('');
+    const [termsAccepted, setTermsAccepted] = useState(false);
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        setModalidad(localStorage.getItem('modalidad') || '');
+        setDireccion(localStorage.getItem('direccion') || 'Virtual');
+        setFecha(localStorage.getItem('fecha') || '');
+        setHora(localStorage.getItem('hora') || '');
+        setDoctor(localStorage.getItem('nombre_doctor') || '');
+    }, []);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        if (!termsAccepted) {
+            alert("Debes aceptar los Términos y Condiciones.");
+            return;
+        }
+
+        const [dia, mes, anio] = fecha.split('/');
+        const fechaEdit = new Date(`${anio}-${mes}-${dia}`);
+
+        try {
+            const response = await axios.post('https://back-proytec.onrender.com/api/citas/crearCita', {
+                modalidad,
+                direccion,
+                fecha: fechaEdit,
+                hora,
+                nombre_doctor: doctor,
+                nombre_paciente: nombres,
+                apellido_paciente: apellidos,
+                email,
+                celular_paciente: celular
+            });
+
+            alert("Cita registrada exitosamente");
+            localStorage.removeItem('modalidad');
+            localStorage.removeItem('direccion');
+            localStorage.removeItem('fecha');
+            localStorage.removeItem('hora');
+            localStorage.removeItem('nombre_doctor');
+            navigate('/Nutrifit');
+
+        } catch (err) {
+            console.error(err);
+            alert("Error al registrar la cita");
+        }
+    };
     return (
         <>
             <NavbarUsuario forceNutrifitActive={true}></NavbarUsuario>
@@ -36,49 +97,83 @@ function Nutrifit4() {
 
                 {/* Appointment Info */}
                 <div className="appointment-info4">
-                    <h2 className="appointment-title4">NUTRICIONISTA - PRESENCIAL</h2>
+                    <h2 className="appointment-title4">NUTRICIONISTA - {modalidad}</h2>
 
                     <div className="info-item4">
                         <i className="fas fa-map-marker-alt"></i>
-                        <span>Av. Paseo de la República 6500, Barranco</span>
+                        <span>{direccion}</span>
                     </div>
 
                     <div className="info-item4">
                         <i className="fas fa-calendar-alt"></i>
-                        <span>Miércoles, Octubre 3</span>
+                        <span>{fecha}</span>
                     </div>
 
                     <div className="info-item4">
                         <i className="fas fa-clock"></i>
-                        <span>7:30 p.m.</span>
+                        <span>{hora}</span>
                     </div>
 
                     <div className="info-item4">
                         <i className="fas fa-user-md"></i>
-                        <span>DR. Jean Pitto Vilca</span>
+                        <span>{doctor}</span>
                     </div>
                 </div>
 
                 {/* Form */}
-                <form className="appointment-form4">
+                <form className="appointment-form4" onSubmit={handleSubmit}>
                     <div className="form-group4">
-                        <input type="text" className="form-input4" placeholder="Nombres" required />
+                        <input
+                            type="text"
+                            className="form-input4"
+                            placeholder="Nombres"
+                            required
+                            value={nombres}
+                            onChange={(e) => setNombres(e.target.value)}
+                        />
                     </div>
 
                     <div className="form-group4">
-                        <input type="text" className="form-input4" placeholder="Apellidos" required />
+                        <input
+                            type="text"
+                            className="form-input4"
+                            placeholder="Apellidos"
+                            required
+                            value={apellidos}
+                            onChange={(e) => setApellidos(e.target.value)}
+                        />
                     </div>
 
                     <div className="form-group4">
-                        <input type="email" className="form-input4" placeholder="Email" required />
+                        <input
+                            type="email"
+                            className="form-input4"
+                            placeholder="Email"
+                            required
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
                     </div>
 
                     <div className="form-group4">
-                        <input type="tel" className="form-input4" placeholder="Celular" required />
+                        <input
+                            type="tel"
+                            className="form-input4"
+                            placeholder="Celular"
+                            required
+                            value={celular}
+                            onChange={(e) => setCelular(e.target.value)}
+                        />
                     </div>
 
                     <div className="checkbox-group4">
-                        <input type="checkbox" id="terms4" className="checkbox-input4" />
+                        <input
+                            type="checkbox"
+                            id="terms4"
+                            className="checkbox-input4"
+                            checked={termsAccepted}
+                            onChange={(e) => setTermsAccepted(e.target.checked)}
+                        />
                         <label htmlFor="terms4" className="checkbox-label4">He leído TyC.</label>
                     </div>
 

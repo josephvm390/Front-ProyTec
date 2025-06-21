@@ -1,9 +1,66 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import NavbarUsuario from '../InfoUsuario/NavbarUsuario'
 import './Nutrifit2.css'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function Nutrifit2() {
+
+    const [modalidad, setModalidad] = useState('');
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const modo = localStorage.getItem('modalidad');
+        setModalidad(modo);
+    }, []);
+
+    const doctoresPresenciales = [
+        {
+            nombre: "DR. Lucas LLano Baldera",
+            celular: "966567890",
+            correo: "Lucas@gmail.com",
+            direccion: "Av. Javier Prado 123",
+            imagen: "img/doctor1.jpg"
+        },
+        {
+            nombre: "DR. Piero Mendez Leon",
+            celular: "966567890",
+            correo: "Piero@gmail.com",
+            direccion: "Calle Las Palmeras 456",
+            imagen: "img/doctor2.jpg"
+        },
+        {
+            nombre: "DR. Lucas Carrion Perez",
+            celular: "976857645",
+            correo: "Lucas@gmail.com",
+            direccion: "Jr. Los Sauces 789",
+            imagen: "img/doctor2.jpg"
+        }
+    ];
+
+    const doctoresVirtuales = [
+        {
+            nombre: "DR. Jean Pinto Vilca",
+            celular: "955123456",
+            correo: "Jean@gmail.com",
+            imagen: "img/doctor3.jpg"
+        },
+        {
+            nombre: "DR. Pedro Medina Villa",
+            celular: "944987654",
+            correo: "Pedro@gmail.com",
+            imagen: "img/doctor4.jpg"
+        }
+    ];
+
+    const doctoresMostrar = modalidad === 'PRESENCIAL' ? doctoresPresenciales : doctoresVirtuales;
+
+    const seleccionarDoctor = (nombre, direccion) => {
+        localStorage.setItem('nombre_doctor', nombre);
+        localStorage.setItem('direccion', direccion || '');
+        navigate('/Nutrifit3');
+    };
+
+
     return (
         <>
             <NavbarUsuario forceNutrifitActive={true}></NavbarUsuario>
@@ -34,43 +91,26 @@ function Nutrifit2() {
                     </div>
                 </div>
 
-                {/* Nutritionist Selection */}
+                {/* Doctor List */}
                 <div className="nutritionist-container2">
-                    <div className="nutritionist-card2">
-                        <img src="img/doctor1.jpg" alt="Dr. Lucas" className="nutritionist-avatar2" />
-                        <div className="nutritionist-info2">
-                            <h3 className="nutritionist-name2">DR. Lucas LLano Baldera</h3>
-                            <p className="nutritionist-detail2">Celular: 966567890</p>
-                            <p className="nutritionist-detail2">Correo: Lucas@gmail.com</p>
+                    {doctoresMostrar.map((doc, index) => (
+                        <div
+                            className="nutritionist-card2"
+                            key={index}
+                            onClick={() => seleccionarDoctor(doc.nombre, doc.direccion)}
+                            style={{ cursor: 'pointer' }}
+                        >
+                            <img src={doc.imagen} alt={doc.nombre} className="nutritionist-avatar2" />
+                            <div className="nutritionist-info2">
+                                <h3 className="nutritionist-name2">{doc.nombre}</h3>
+                                <p className="nutritionist-detail2">Celular: {doc.celular}</p>
+                                <p className="nutritionist-detail2">Correo: {doc.correo}</p>
+                                {doc.direccion && (
+                                    <p className="nutritionist-detail2">Dirección: {doc.direccion}</p>
+                                )}
+                            </div>
                         </div>
-                    </div>
-
-                    <div className="nutritionist-card2">
-                        <img src="img/doctor2.jpg" alt="Dr. Piero" className="nutritionist-avatar2" />
-                        <div className="nutritionist-info2">
-                            <h3 className="nutritionist-name2">DR. PIERO MENDEZ LEON</h3>
-                            <p className="nutritionist-detail2">Celular: 966567890</p>
-                            <p className="nutritionist-detail2">Correo: Piero@gmail.com</p>
-                        </div>
-                    </div>
-
-                    <div className="nutritionist-card2">
-                        <img src="img/doctor3.jpg" alt="Dr. Jean" className="nutritionist-avatar2" />
-                        <div className="nutritionist-info2">
-                            <h3 className="nutritionist-name2">DR. JEAN PINTO VILCA</h3>
-                            <p className="nutritionist-detail2">Celular: 966567890</p>
-                            <p className="nutritionist-detail2">Correo: JEAN@gmail.com</p>
-                        </div>
-                    </div>
-
-                    <div className="nutritionist-card2">
-                        <img src="img/doctor4.jpg" alt="Dr. Pedro" className="nutritionist-avatar2" />
-                        <div className="nutritionist-info2">
-                            <h3 className="nutritionist-name2">DR. PEDRO MEDINA VILLA</h3>
-                            <p className="nutritionist-detail2">Celular: 966567890</p>
-                            <p className="nutritionist-detail2">Correo: Pedro@gmail.com</p>
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </main>
         </>

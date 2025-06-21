@@ -133,17 +133,11 @@
     padding: 12px 30px;
     font-size: 14px;
     font-weight: 600;
-    border-radius: 20px;
-    cursor: pointer;
+    border-radius: 10px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
     box-shadow: 0 3px 10px rgba(255, 195, 0, 0.3);
-}
-
-.date-button3:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 195, 0, 0.4);
 }
 
 .time-button3 {
@@ -153,19 +147,13 @@
     padding: 12px 25px;
     font-size: 12px;
     font-weight: 600;
-    border-radius: 20px;
-    cursor: pointer;
+    border-radius: 10px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 
-.time-button3:hover {
-    background-color: #555;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
 
 .next-button-container3 {
     margin-top: 20px;
