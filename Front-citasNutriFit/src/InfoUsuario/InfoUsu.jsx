@@ -121,13 +121,6 @@ function InfoUsu() {
                 <div className="alert-card">
                     <img src="/img/user_aviso.jpg" alt="Avisos Fit - ¡Atención SmartFitero!" />
                 </div>
-
-                <div className="nutrition-section">
-                    <h3 className="nutrition-title">Citas con Nutricionistas</h3>
-                    <div className="nutrition-info">
-                        INFORMACIÓN DE LA CITA PREVIAMENTE REGISTRADA - Sprint 3
-                    </div>
-                </div>
             </div>
         </div>
     );
