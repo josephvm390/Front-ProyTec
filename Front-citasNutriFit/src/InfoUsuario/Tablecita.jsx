@@ -33,6 +33,21 @@ function Tablecita() {
         return null; // No muestra nada si no tiene plan Black
     };
 
+    const handleCancelar = (idCita) => {
+    const confirmar = window.confirm("¿Estás seguro de cancelar tu cita?"); // para evitar cancelaciones por error
+    if (!confirmar) return;
+
+    axios.put(`http://localhost:3000/api/citas/editarCita/${idCita}`, {
+        estado: 'Cancelado'
+    })
+    .then(() => {
+        setCitas(prev =>
+            prev.map(c => c._id === idCita ? { ...c, estado: 'Cancelado' } : c)
+        );
+    })
+    .catch(error => console.error("Error al cancelar cita:", error));
+};
+
     return (
         <div className="table-container">
             {loading ? (
@@ -49,6 +64,7 @@ function Tablecita() {
                                 <th>Fecha</th>
                                 <th>Hora</th>
                                 <th>Estado</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -60,6 +76,14 @@ function Tablecita() {
                                     <td>{formatearFecha(cita.fecha)}</td>
                                     <td>{cita.hora}</td>
                                     <td>{cita.estado}</td>
+                                    <td>
+                                        <button
+                                            className="boton-cancelar"
+                                            onClick={() => handleCancelar(cita._id)}
+                                        >
+                                            Cancelar
+                                        </button>
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>
