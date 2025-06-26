@@ -37,7 +37,7 @@ function Tablecita() {
     const confirmar = window.confirm("¿Estás seguro de cancelar tu cita?"); // para evitar cancelaciones por error
     if (!confirmar) return;
 
-    axios.put(`http://localhost:3000/api/citas/editarCita/${idCita}`, {
+    axios.put(`https://back-proytec.onrender.com/api/citas/editarCita/${idCita}`, {
         estado: 'Cancelado'
     })
     .then(() => {
