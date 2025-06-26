@@ -91,7 +91,17 @@ function InfoUsu() {
                             <input type="tel" className="form-input" value={userData.contactoEmer || ''} readOnly />
                         </div>
                     </div>
-                    <Link to="/login" className="save-btn">LOG OUT</Link>
+                    <Link
+                        to="/login"
+                        className="save-btn"
+                        onClick={() => {
+                            localStorage.removeItem('email');
+                            localStorage.removeItem('dni');
+                            localStorage.removeItem('membresia');
+                        }}
+                    >
+                        LOG OUT
+                    </Link>
                 </form>
                 {/* Apartado de horarios de atencion */}
                 <div className="schedule-section">
