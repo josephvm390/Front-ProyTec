@@ -11,7 +11,8 @@ function Navbar() {
           <img src="/img/logo_black.jpg" alt="Smart Fit" />
         </div>
         <div className="nav-buttons">
-        <Link to="/login" className="login-btn">LOGIN</Link>
+        <Link to="/login" className="login-btn">LOGIN-Cliente</Link>
+        <Link to="/login2" className="login-btn2">LOGIN-Colaborador</Link>
         </div>
       </div>
     </div>

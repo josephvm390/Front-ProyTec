@@ -16,21 +16,21 @@ function Nutrifit2() {
     const doctoresPresenciales = [
         {
             nombre: "DR. Lucas LLano Baldera",
-            celular: "966567890",
+            celular: "912454768",
             correo: "Lucas@gmail.com",
             direccion: "Av. Javier Prado 123",
             imagen: "img/doctor1.jpg"
         },
         {
             nombre: "DR. Piero Mendez Leon",
-            celular: "966567890",
+            celular: "912454231",
             correo: "Piero@gmail.com",
             direccion: "Calle Las Palmeras 456",
             imagen: "img/doctor2.jpg"
         },
         {
             nombre: "DR. Lucas Carrion Perez",
-            celular: "976857645",
+            celular: "912454123",
             correo: "Lucas@gmail.com",
             direccion: "Jr. Los Sauces 789",
             imagen: "img/doctor2.jpg"
@@ -40,13 +40,13 @@ function Nutrifit2() {
     const doctoresVirtuales = [
         {
             nombre: "DR. Jean Pinto Vilca",
-            celular: "955123456",
+            celular: "912454456",
             correo: "Jean@gmail.com",
             imagen: "img/doctor3.jpg"
         },
         {
             nombre: "DR. Pedro Medina Villa",
-            celular: "944987654",
+            celular: "912454011",
             correo: "Pedro@gmail.com",
             imagen: "img/doctor4.jpg"
         }

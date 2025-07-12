@@ -17,7 +17,8 @@ import Nutrifit1 from './Nutrifit/Nutrifit1'
 import Nutrifit2 from './Nutrifit/Nutrifit2'
 import Nutrifit3 from './Nutrifit/Nutrifit3'
 import Nutrifit4 from './Nutrifit/Nutrifit4'
-
+import Login2 from './Login2/Login2'
+import AreaNutricionista from './AreaNutricionista/AreaNutricionista'
 
 
 function App() {
@@ -40,6 +41,8 @@ function App() {
           <Route path="/Nutrifit2" element={<Nutrifit2></Nutrifit2>}></Route>
           <Route path="/Nutrifit3" element={<Nutrifit3></Nutrifit3>}></Route>
           <Route path="/Nutrifit4" element={<Nutrifit4></Nutrifit4>}></Route>
+          <Route path="/Login2" element={<Login2></Login2>}></Route>
+          <Route path="/AreaNutricionista" element={<AreaNutricionista></AreaNutricionista>}></Route>
         </Routes>
       </Router>
       <Footer></Footer>
