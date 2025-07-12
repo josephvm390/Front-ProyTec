@@ -24,7 +24,7 @@
     margin-top: 50px;
 }
 
-.plan-card {
+.plan-card2 {
     flex: 1;
     max-width: 300px;
     border-radius: 10px;
@@ -133,7 +133,7 @@
         align-items: center;
     }
     
-    .plan-card {
+    .plan-card2 {
         max-width: 90%;
         margin-top: 80px;
         margin-bottom: 20px;

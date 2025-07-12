@@ -7,7 +7,7 @@ function Plans() {
             <h2>ELIGE <span className="tu-plan">TU PLAN</span></h2>
 
             <div className="plans-container">
-                <div className="plan-card plan-fit">
+                <div className="plan-card2 plan-fit">
                     <div className="plan-circle">
                         <div className="plan-name">PLAN<br />FIT</div>
                     </div>
@@ -22,7 +22,7 @@ function Plans() {
                     </ul>
                 </div>
 
-                <div className="plan-card plan-black">
+                <div className="plan-card2 plan-black">
                     <div className="plan-circle">
                         <div className="plan-name">PLAN<br />BLACK</div>
                     </div>
@@ -39,7 +39,7 @@ function Plans() {
                     <div className="plan-tag">¡MÁS<br />BENEFICIOS!</div>
                 </div>
 
-                <div className="plan-card plan-smart">
+                <div className="plan-card2 plan-smart">
                     <div className="plan-circle">
                         <div className="plan-name">PLAN<br />SMART</div>
                     </div>
