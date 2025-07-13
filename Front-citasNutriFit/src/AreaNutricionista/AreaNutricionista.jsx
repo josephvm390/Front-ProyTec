@@ -25,7 +25,7 @@ function AreaNutricionista() {
 
     useEffect(() => {
         if (correoDoctor) {
-            axios.get(`http://localhost:3000/api/citas/obtenerCitaxCorreoDoc/${correoDoctor}`) // Api para obtener datos de las citas
+            axios.get(`https://back-proytec.onrender.com/api/citas/obtenerCitaxCorreoDoc/${correoDoctor}`) // Api para obtener datos de las citas
                 .then(response => {
                     setCitas(response.data);
                     const camposIniciales = {};
@@ -41,7 +41,7 @@ function AreaNutricionista() {
                 .catch(error => console.error("Error al obtener citas:", error))
                 .finally(() => setLoading(false));
 
-            axios.get(`http://localhost:3000/api/doctores/detallesDoctor/${correoDoctor}`) // Api para obtener datos del doctor
+            axios.get(`https://back-proytec.onrender.com/api/doctores/detallesDoctor/${correoDoctor}`) // Api para obtener datos del doctor
                 .then(response => setDoctorInfo(response.data))
                 .catch(error => console.error("Error al obtener datos del doctor:", error));
         } else {
@@ -77,28 +77,28 @@ function AreaNutricionista() {
     };
 
     const handleCancelar = (idCita) => { //logica para cambiar el estado a cancelar mediante el boton (Cancelar)
-    const confirmar = window.confirm("¿Estás seguro de cancelar esta cita?");
-    if (!confirmar) return;
+        const confirmar = window.confirm("¿Estás seguro de cancelar esta cita?");
+        if (!confirmar) return;
 
-    axios.put(`https://back-proytec.onrender.com/api/citas/editarCita/${idCita}`, {
-        estado: 'cancelado'
-    })
-    .then(() => {
-        setCitas(prev =>
-            prev.map(cita =>
-                cita._id === idCita ? { ...cita, estado: 'cancelado' } : cita
-            )
-        );
-        setEditFields(prev => ({
-            ...prev,
-            [idCita]: {
-                ...prev[idCita],
-                estado: 'cancelado'
-            }
-        }));
-    })
-    .catch(error => console.error("Error al cancelar cita:", error));
-};
+        axios.put(`https://back-proytec.onrender.com/api/citas/editarCita/${idCita}`, {
+            estado: 'cancelado'
+        })
+            .then(() => {
+                setCitas(prev =>
+                    prev.map(cita =>
+                        cita._id === idCita ? { ...cita, estado: 'cancelado' } : cita
+                    )
+                );
+                setEditFields(prev => ({
+                    ...prev,
+                    [idCita]: {
+                        ...prev[idCita],
+                        estado: 'cancelado'
+                    }
+                }));
+            })
+            .catch(error => console.error("Error al cancelar cita:", error));
+    };
 
     return (
         <div>
@@ -184,11 +184,11 @@ function AreaNutricionista() {
                                                     </td>
                                                     <td>
                                                         <select
-                                                            value={editFields[cita._id]?.estado || 'pendiente'}
+                                                            value={editFields[cita._id]?.estado ?? ''}
                                                             onChange={(e) => handleChange(cita._id, 'estado', e.target.value)}
                                                         >
                                                             <option value="pendiente">Pendiente</option>
-                                                            <option value="cancelado">Cancelado</option>
+                                                            <option value="Cancelado">Cancelado</option>
                                                             <option value="reprogramado">Reprogramado</option>
                                                         </select>
                                                     </td>

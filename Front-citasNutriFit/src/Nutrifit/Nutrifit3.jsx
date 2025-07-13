@@ -37,13 +37,16 @@ function Nutrifit3() {
         navigate('/Nutrifit4');
     };
 
-    const estaOcupado = (f, h) => {
-        return citasOcupadas.some(cita => {
-            const fechaObj = new Date(cita.fecha);
-            const fechaStr = fechaObj.toISOString().slice(0, 10).split('-').reverse().join('/');
-            return fechaStr === f && cita.hora === h && cita.nombre_doctor === doctor;
-        });
-    };
+    const estaOcupado = (f, h) => { //logica para verificar si una fecha y hora, estan ocupados
+    const [dd, mm, yyyy] = f.split('/');
+    const fechaFormatoISO = `${yyyy}-${mm}-${dd}`;
+
+    return citasOcupadas.some(cita =>
+        cita.fecha?.slice(0, 10) === fechaFormatoISO &&
+        cita.hora === h &&
+        cita.nombre_doctor === doctor
+    );
+};
 
     return (
         <>
