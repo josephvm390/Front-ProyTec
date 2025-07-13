@@ -54,9 +54,10 @@ function Nutrifit2() {
 
     const doctoresMostrar = modalidad === 'PRESENCIAL' ? doctoresPresenciales : doctoresVirtuales;
 
-    const seleccionarDoctor = (nombre, direccion) => {
+    const seleccionarDoctor = (nombre, direccion,correo) => {
         localStorage.setItem('nombre_doctor', nombre);
         localStorage.setItem('direccion', direccion || '');
+        localStorage.setItem('correo_doctor', correo);
         navigate('/Nutrifit3');
     };
 
@@ -97,7 +98,7 @@ function Nutrifit2() {
                         <div
                             className="nutritionist-card2"
                             key={index}
-                            onClick={() => seleccionarDoctor(doc.nombre, doc.direccion)}
+                            onClick={() => seleccionarDoctor(doc.nombre, doc.direccion, doc.correo)}
                             style={{ cursor: 'pointer' }}
                         >
                             <img src={doc.imagen} alt={doc.nombre} className="nutritionist-avatar2" />

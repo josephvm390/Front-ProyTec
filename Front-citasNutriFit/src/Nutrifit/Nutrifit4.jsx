@@ -11,6 +11,7 @@ function Nutrifit4() {
     const [fecha, setFecha] = useState('');
     const [hora, setHora] = useState('');
     const [doctor, setDoctor] = useState('');
+    const [correoDoctor, setCorreoDoctor] = useState('');
 
     const [nombres, setNombres] = useState('');
     const [apellidos, setApellidos] = useState('');
@@ -26,6 +27,7 @@ function Nutrifit4() {
         setFecha(localStorage.getItem('fecha') || '');
         setHora(localStorage.getItem('hora') || '');
         setDoctor(localStorage.getItem('nombre_doctor') || '');
+        setCorreoDoctor(localStorage.getItem('correo_doctor') || '');
     }, []);
 
     const handleSubmit = async (e) => {
@@ -46,6 +48,7 @@ function Nutrifit4() {
                 fecha: fechaEdit,
                 hora,
                 nombre_doctor: doctor,
+                correo_doctor: correoDoctor,
                 nombre_paciente: nombres,
                 apellido_paciente: apellidos,
                 email,
@@ -58,6 +61,7 @@ function Nutrifit4() {
             localStorage.removeItem('fecha');
             localStorage.removeItem('hora');
             localStorage.removeItem('nombre_doctor');
+            localStorage.removeItem('correo_doctor');
             navigate('/Nutrifit');
 
         } catch (err) {
@@ -117,6 +121,11 @@ function Nutrifit4() {
                     <div className="info-item4">
                         <i className="fas fa-user-md"></i>
                         <span>{doctor}</span>
+                    </div>
+
+                    <div className="info-item4">
+                        <i className="fas fa-envelope"></i>
+                        <span>{correoDoctor}</span>
                     </div>
                 </div>
 
