@@ -10,8 +10,8 @@ function AreaNutricionista() {
     const [editFields, setEditFields] = useState({});
     const correoDoctor = localStorage.getItem('correo');
 
-    const convertirHoraAMPM = (horaStr) => {
-        if (!horaStr) return '';
+    const convertirHoraAMPM = (horaStr) => { //para convertir el formato de 12h "AM/PM" a formato de 24 "HH:mm"
+        if (!horaStr) return '';             //asi poder utilizar el intup type "time"
         if (horaStr.includes('AM') || horaStr.includes('PM')) {
             const [horaMinuto, ampm] = horaStr.split(' ');
             let [hora, minuto] = horaMinuto.split(':').map(Number);
@@ -61,15 +61,16 @@ function AreaNutricionista() {
 
     const handleActualizar = (id) => {
         const { fecha, hora, estado } = editFields[id];
+        const horaAMPM = convertirHora12AMPM(hora);
         axios.put(`https://back-proytec.onrender.com/api/citas/editarCita/${id}`, { //Api para actualizar datos de la Cita
             fecha,
-            hora,
+            hora: horaAMPM,
             estado
         })
             .then(() => {
                 alert("Cita actualizada");
                 const nuevasCitas = citas.map(cita =>
-                    cita._id === id ? { ...cita, fecha, hora, estado } : cita
+                    cita._id === id ? { ...cita, fecha, hora: horaAMPM, estado } : cita
                 );
                 setCitas(nuevasCitas);
             })
@@ -81,24 +82,32 @@ function AreaNutricionista() {
         if (!confirmar) return;
 
         axios.put(`https://back-proytec.onrender.com/api/citas/editarCita/${idCita}`, {
-            estado: 'cancelado'
+            estado: 'Cancelado'
         })
             .then(() => {
                 setCitas(prev =>
                     prev.map(cita =>
-                        cita._id === idCita ? { ...cita, estado: 'cancelado' } : cita
+                        cita._id === idCita ? { ...cita, estado: 'Cancelado' } : cita
                     )
                 );
                 setEditFields(prev => ({
                     ...prev,
                     [idCita]: {
                         ...prev[idCita],
-                        estado: 'cancelado'
+                        estado: 'Cancelado'
                     }
                 }));
             })
             .catch(error => console.error("Error al cancelar cita:", error));
     };
+
+    const convertirHora12AMPM = (hora24) => { //para convertir la hora en 12h antes de guardar
+    if (!hora24) return '';
+    const [hora, minuto] = hora24.split(':').map(Number);
+    const ampm = hora >= 12 ? 'PM' : 'AM';
+    const hora12 = hora % 12 === 0 ? 12 : hora % 12;
+    return `${hora12.toString().padStart(2, '0')}:${minuto.toString().padStart(2, '0')} ${ampm}`;
+};
 
     return (
         <div>
