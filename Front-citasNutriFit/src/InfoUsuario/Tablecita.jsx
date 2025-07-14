@@ -34,20 +34,33 @@ function Tablecita() {
     };
 
     const handleCancelar = (idCita) => {
-    const confirmar = window.confirm("¿Estás seguro de cancelar tu cita?"); // para evitar cancelaciones por error
-    if (!confirmar) return;
+        const confirmar = window.confirm("¿Estás seguro de cancelar tu cita?"); // para evitar cancelaciones por error
+        if (!confirmar) return;
 
-    axios.put(`https://back-proytec.onrender.com/api/citas/editarCita/${idCita}`, {
-        estado: 'Cancelado'
-    })
-    .then(() => {
-        setCitas(prev =>
-            prev.map(c => c._id === idCita ? { ...c, estado: 'Cancelado' } : c)
-        );
-    })
-    .catch(error => console.error("Error al cancelar cita:", error));
-};
+        axios.put(`https://back-proytec.onrender.com/api/citas/cancelarCita/${idCita}`, {
+            estado: 'Cancelado'
+        })
+            .then(() => {
+                setCitas(prev =>
+                    prev.map(c => c._id === idCita ? { ...c, estado: 'Cancelado' } : c)
+                );
+            })
+            .catch(error => console.error("Error al cancelar cita:", error));
+    };
 
+    const handleSolicitudReprogramacion = (idCita, nombreDoctor) => {
+        const confirmar = window.confirm("¿Deseas solicitar la reprogramación de esta cita?");
+        if (!confirmar) return;
+
+        axios.post(`https://back-proytec.onrender.com/api/citas/solicitudReprogramacion/${idCita}`)
+            .then((res) => {
+                alert(res.data.message || `Se envió su solicitud al doctor ${nombreDoctor}. Se comunicará con usted en un plazo máximo de 48 horas.`);
+            })
+            .catch(error => {
+                console.error("Error al solicitar reprogramación:", error);
+                alert("Hubo un problema al enviar la solicitud.");
+            });
+    };
     return (
         <div className="table-container">
             {loading ? (
@@ -59,6 +72,7 @@ function Tablecita() {
                         <thead>
                             <tr>
                                 <th>Doctor</th>
+                                <th>Correo</th>
                                 <th>Modalidad</th>
                                 <th>Dirección</th>
                                 <th>Fecha</th>
@@ -71,12 +85,21 @@ function Tablecita() {
                             {citas.map((cita, index) => (
                                 <tr key={index}>
                                     <td>{cita.nombre_doctor}</td>
+                                    <th>{cita.correo_doctor}</th>
                                     <td>{cita.modalidad}</td>
                                     <td>{cita.direccion}</td>
                                     <td>{formatearFecha(cita.fecha)}</td>
                                     <td>{cita.hora}</td>
                                     <td>{cita.estado}</td>
                                     <td>
+                                        <button
+                                            className="boton-solicitud"
+                                            onClick={() => handleSolicitudReprogramacion(cita._id, cita.nombre_doctor)}
+                                        >
+                                            Reprogramación
+                                        </button>
+                                        <br />
+                                        <br />
                                         <button
                                             className="boton-cancelar"
                                             onClick={() => handleCancelar(cita._id)}

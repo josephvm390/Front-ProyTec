@@ -62,7 +62,7 @@ function AreaNutricionista() {
     const handleActualizar = (id) => {
         const { fecha, hora, estado } = editFields[id];
         const horaAMPM = convertirHora12AMPM(hora);
-        axios.put(`https://back-proytec.onrender.com/api/citas/editarCita/${id}`, { //Api para actualizar datos de la Cita
+        axios.put(`https://back-proytec.onrender.com/api/citas/actulizarCita/${id}`, { //Api para actualizar datos de la Cita
             fecha,
             hora: horaAMPM,
             estado
@@ -81,7 +81,7 @@ function AreaNutricionista() {
         const confirmar = window.confirm("¿Estás seguro de cancelar esta cita?");
         if (!confirmar) return;
 
-        axios.put(`https://back-proytec.onrender.com/api/citas/editarCita/${idCita}`, {
+        axios.put(`https://back-proytec.onrender.com/api/citas/actulizarCita/${idCita}`, {
             estado: 'Cancelado'
         })
             .then(() => {

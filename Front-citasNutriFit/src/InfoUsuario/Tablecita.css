@@ -1,6 +1,6 @@
 .table-container {
     width: 80%;
-    max-width: 900px;
+    max-width: 1100px;
     margin: 0px auto 40px auto;
     padding: 20px;
     background-color: white;
@@ -32,6 +32,7 @@
     background-color: #f9f9f9;
     font-weight: 600;
 }
+
 .boton-cancelar {
     background-color: #e74c3c;
     color: white;
@@ -44,4 +45,15 @@
 
 .boton-cancelar:hover {
     background-color: #c0392b;
+}
+
+.boton-solicitud {
+    margin-top: 5px;
+    padding: 5px 10px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
 }

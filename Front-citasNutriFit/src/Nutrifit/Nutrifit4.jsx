@@ -61,7 +61,6 @@ function Nutrifit4() {
             localStorage.removeItem('fecha');
             localStorage.removeItem('hora');
             localStorage.removeItem('nombre_doctor');
-            localStorage.removeItem('correo_doctor');
             navigate('/Nutrifit');
 
         } catch (err) {
