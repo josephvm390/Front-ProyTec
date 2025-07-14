@@ -17,7 +17,7 @@ function Nutrifit2() {
         {
             nombre: "DR. Lucas LLano Baldera",
             celular: "912454768",
-            correo: "Lucas@gmail.com",
+            correo: "lucasnutfit@gmail.com",
             direccion: "Av. Javier Prado 123",
             imagen: "img/doctor1.jpg"
         },
