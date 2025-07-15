@@ -131,7 +131,7 @@ function AreaNutricionista() {
                         <h3>{doctorInfo?.nombre || 'Doctor(a)'}</h3>
                         <div className="profile-avatar02">
                             {doctorInfo?.imagenPath ? (
-                                <img src={`https://back-proytec.onrender.com/${doctorInfo.imagenPath}`} alt="Doctor" className="avatar-image02" />
+                                <img src={`https://back-proytec.onrender.com/${doctorInfo.imagenPath}`} alt="Doctor" className="avatar-image02" /> //para obtener la imagen del Doctor
                             ) : (
                                 <div className="avatar-placeholder02"></div>
                             )}

@@ -69,7 +69,7 @@ function Nutrifit2() {
                 <h1 className="title2">Realiza tu Cita con un Nutricionista de confianza</h1>
                 <div className="title-underline2"></div>
 
-                {/* Progress Steps */}
+                {/* Progreso al realizar la cita */}
                 <div className="progress-container2">
                     <div className="step2 completed2">
                         <div className="step-number2">1</div>
@@ -92,7 +92,7 @@ function Nutrifit2() {
                     </div>
                 </div>
 
-                {/* Doctor List */}
+                {/* Datos para el doctor, que se muestra en la lista */}
                 <div className="nutritionist-container2">
                     {doctoresMostrar.map((doc, index) => (
                         <div
